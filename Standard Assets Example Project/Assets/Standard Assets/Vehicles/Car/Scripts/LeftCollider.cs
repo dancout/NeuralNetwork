@@ -6,7 +6,6 @@ namespace UnityStandardAssets.Vehicles.Car {
 
 	public class LeftCollider : MonoBehaviour {
 
-			 public CarController m_Car; // the car controller we want to use
 		 public CarUserControl m_CarUserControl;
 
 		// Use this for initialization
