@@ -655,6 +655,7 @@ GameObject:
   - component: {fileID: 309371052}
   - component: {fileID: 309371051}
   - component: {fileID: 309371050}
+  - component: {fileID: 309371053}
   m_Layer: 0
   m_Name: LeftCollider
   m_TagString: Untagged
@@ -729,6 +730,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 309371048}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &309371053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 309371048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e324846551d1545aedb10415164b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Car: {fileID: 341300514}
+  m_CarUserControl: {fileID: 341300513}
 --- !u!4 &332488660
 Transform:
   m_ObjectHideFlags: 0
@@ -803,7 +817,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96468c245ae8e0d4f8f1c7a7b8b0542e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodeInput: 0
+  frontSwitch: 0
+  leftSwitch: 0
+  rightSwitch: 0
   h: 0
   v: 0
   handbrake: 0
@@ -4522,6 +4538,7 @@ GameObject:
   - component: {fileID: 507925772}
   - component: {fileID: 507925771}
   - component: {fileID: 507925770}
+  - component: {fileID: 507925773}
   m_Layer: 0
   m_Name: RightCollider
   m_TagString: Untagged
@@ -4596,6 +4613,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 507925768}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &507925773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 507925768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e01571c1e64173418630c35c2f540f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Car: {fileID: 341300514}
+  m_CarUserControl: {fileID: 341300513}
 --- !u!114 &525588596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8184,7 +8214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c200f443486a7748ac91879c28ad121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Car: {fileID: 341300514}
   m_CarUserControl: {fileID: 341300513}
 --- !u!1 &1903741330
 GameObject:

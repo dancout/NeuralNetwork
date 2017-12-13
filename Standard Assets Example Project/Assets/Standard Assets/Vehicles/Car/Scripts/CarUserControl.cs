@@ -8,7 +8,9 @@ namespace UnityStandardAssets.Vehicles.Car
     public class CarUserControl : MonoBehaviour
     {
 
-    public float nodeInput;
+    public float frontSwitch;
+    public float leftSwitch;
+    public float rightSwitch;
     public float h;
     public float v;
     public float handbrake;
@@ -23,7 +25,6 @@ namespace UnityStandardAssets.Vehicles.Car
         h = 0;
         }
 
-
         public void MoveCar(float h, float v, float handbrake)
         {
             m_Car.Move(h, v, v, handbrake);
@@ -32,22 +33,13 @@ namespace UnityStandardAssets.Vehicles.Car
         public void FixedUpdate()
         {
             // pass the input to the car!
-            
-        
+
         h = CrossPlatformInputManager.GetAxis("Horizontal");
         v = CrossPlatformInputManager.GetAxis("Vertical");
 #if !MOBILE_INPUT
         handbrake = CrossPlatformInputManager.GetAxis("Jump");
-        if(nodeInput > -1)
+        // if(frontSwitch > -1)
             m_Car.Move(h, v, v, handbrake);
-        // else {
-        //     h = 0;
-        //     v = 0;
-        //     handbrake = 0;
-        //     m_Car.Move(h, v, v, handbrake); }
-
-        
-    
 #else
 
 #endif

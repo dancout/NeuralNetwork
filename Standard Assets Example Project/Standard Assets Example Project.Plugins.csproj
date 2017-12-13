@@ -176,7 +176,9 @@
     <Compile Include="Assets\Standard Assets\Vehicles\Car\Scripts\CarSelfRighting.cs" />
     <Compile Include="Assets\Standard Assets\Vehicles\Car\Scripts\CarUserControl.cs" />
     <Compile Include="Assets\Standard Assets\Vehicles\Car\Scripts\FrontCollider.cs" />
+    <Compile Include="Assets\Standard Assets\Vehicles\Car\Scripts\LeftCollider.cs" />
     <Compile Include="Assets\Standard Assets\Vehicles\Car\Scripts\Mudguard.cs" />
+    <Compile Include="Assets\Standard Assets\Vehicles\Car\Scripts\RightCollider.cs" />
     <Compile Include="Assets\Standard Assets\Vehicles\Car\Scripts\SkidTrail.cs" />
     <Compile Include="Assets\Standard Assets\Vehicles\Car\Scripts\Suspension.cs" />
     <Compile Include="Assets\Standard Assets\Vehicles\Car\Scripts\WheelEffects.cs" />
