@@ -8,6 +8,7 @@ namespace UnityStandardAssets.Vehicles.Car
 	public class ComputeValues : MonoBehaviour {
 
 		 public InputsOutputs m_InOut;
+		 public NeuralNetwork m_Network;
 
 		// Use this for initialization
 		void Start () {
@@ -16,29 +17,25 @@ namespace UnityStandardAssets.Vehicles.Car
 		
 		// Update is called once per frame
 		void Update () {
-			// check if any switches are on
+			// Update the input layer for the neural network
+			List<float> inputLayer = new List<float>();
+			inputLayer.Add(m_InOut.frontSwitch);
+			inputLayer.Add(m_InOut.rightSwitch);
+			inputLayer.Add(m_InOut.leftSwitch);
 
-			m_InOut.v = 1;
-			m_InOut.h = 0;
-			m_InOut.handbrake = 0;
+			m_Network.inputLayer = inputLayer;
 
-	        if(m_InOut.rightSwitch > 0) {
-	        	m_InOut.h = -0.5F;
-	        	m_InOut.v = 1;
-	        	m_InOut.handbrake = 0;
-	        }
-
-	        if(m_InOut.frontSwitch > 0){
-	           m_InOut. h = 0;
-	          	m_InOut.v = -1;
-	            m_InOut.handbrake = 0;
-	        }
 			
-			if(m_InOut.leftSwitch > 0) {
-	        	m_InOut.h = 0.5F;
-	        	m_InOut.v = 1;
-	        	m_InOut.handbrake = 0;
-	        }
+			// grab the outputs from the neural network output layer
+	        float h = m_Network.outputLayer[0];
+	        float v = m_Network.outputLayer[1];
+	        float handbrake = m_Network.outputLayer[2];
+
+	        // set these output values to the InputsOutputs class (to be used for the carusercontroller)
+	        m_InOut.h = h;
+        	m_InOut.v = v;
+        	m_InOut.handbrake = handbrake;
+	       
 		}
 	}
 

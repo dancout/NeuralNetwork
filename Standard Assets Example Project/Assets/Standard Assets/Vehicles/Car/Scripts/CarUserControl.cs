@@ -37,7 +37,8 @@ namespace UnityStandardAssets.Vehicles.Car
 
         public void FixedUpdate()
         {
-         m_Car.Move(h, v, v, handbrake);
+            // call the car contoller to move the car
+            m_Car.Move(h, v, v, handbrake);
         }
     }
 }

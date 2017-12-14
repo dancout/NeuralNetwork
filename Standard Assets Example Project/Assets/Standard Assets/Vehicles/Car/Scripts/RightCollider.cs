@@ -28,10 +28,7 @@ namespace UnityStandardAssets.Vehicles.Car {
 	    }
 		
 		// Update is called once per frame
-		void Update () {
-
-			// Applies an upwards force to all rigidbodies that enter the trigger.		
-		}
+		void Update () {}
 	}
 
 }
