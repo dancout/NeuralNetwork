@@ -27,36 +27,6 @@ namespace UnityStandardAssets.Vehicles.Car {
 		// Update is called once per frame
 		void Update () {
 
-
-			// check if any switches are on
-			if((frontSwitch > 0) || (rightSwitch > 0) || (leftSwitch > 0)) {
-				m_CarUserControl.switchIsOn = 1;
-			}
-			else {
-				m_CarUserControl.switchIsOn = 0;
-				v = 1;
-				h = 0;
-				handbrake = 0;
-			}
-
-	        if(rightSwitch > 0) {
-	        	h = -0.5F;
-	        	v = 1;
-	        	handbrake = 0;
-	        }
-
-	        if(frontSwitch > 0){
-	            h = 0;
-	          	v = -1;
-	            handbrake = 0;
-	        }
-			
-			if(leftSwitch > 0) {
-	        	h = 0.5F;
-	        	v = 1;
-	        	handbrake = 0;
-	        }
-
 	        // update the car user controller after looking through inputs
 	        m_CarUserControl.h = h;
 	        m_CarUserControl.v = v;

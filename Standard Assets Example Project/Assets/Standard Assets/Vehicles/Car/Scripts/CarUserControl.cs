@@ -37,20 +37,6 @@ namespace UnityStandardAssets.Vehicles.Car
 
         public void FixedUpdate()
         {
-            // pass the input to the car!
-
-            // if(switchIsOn > 0){
-            //     // don't change any values, because they were changed in InputsOutputs.
-            // }
-            // else{
-            //     // no switches are on, so control the car as normal
-
-            //     h = CrossPlatformInputManager.GetAxis("Horizontal");
-            //     v = CrossPlatformInputManager.GetAxis("Vertical");
-
-            //     handbrake = CrossPlatformInputManager.GetAxis("Jump");
-            // }
-
          m_Car.Move(h, v, v, handbrake);
         }
     }

@@ -772,6 +772,7 @@ GameObject:
   - component: {fileID: 341300515}
   - component: {fileID: 341300514}
   - component: {fileID: 341300513}
+  - component: {fileID: 341300517}
   - component: {fileID: 341300516}
   - component: {fileID: 341300512}
   m_Layer: 0
@@ -899,6 +900,18 @@ MonoBehaviour:
   h: 0
   v: 0
   handbrake: 0
+--- !u!114 &341300517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 341300511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d121185eb9b6364f87aebc5f0cc74f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InOut: {fileID: 341300516}
 --- !u!1 &352958648 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: b87e14348acae3449a86167ae5521ac4, type: 3}
