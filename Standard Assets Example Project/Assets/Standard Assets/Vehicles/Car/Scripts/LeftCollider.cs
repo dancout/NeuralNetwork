@@ -6,7 +6,7 @@ namespace UnityStandardAssets.Vehicles.Car {
 
 	public class LeftCollider : MonoBehaviour {
 
-		 public CarUserControl m_CarUserControl;
+		 public InputsOutputs m_InOut;
 
 		// Use this for initialization
 		void Start () {}
@@ -15,17 +15,17 @@ namespace UnityStandardAssets.Vehicles.Car {
 
         void OnTriggerEnter(Collider other)
         {
-        	m_CarUserControl.leftSwitch = -2;
+        	m_InOut.leftSwitch = 1;
         }
 
 		 void OnTriggerStay(Collider other)
 	    {
-	    	m_CarUserControl.leftSwitch = -2;
+	    	m_InOut.leftSwitch = 1;
 	    }
 
 	    void OnTriggerExit(Collider other)
 	    {
-	    	m_CarUserControl.leftSwitch = 0;
+	    	m_InOut.leftSwitch = 0;
 	    }
 		
 		// Update is called once per frame

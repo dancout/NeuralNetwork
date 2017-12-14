@@ -8,7 +8,7 @@ namespace UnityStandardAssets.Vehicles.Car {
 	// [RequireComponent(typeof (CarController))]
 	public class FrontCollider : MonoBehaviour {
 
-		 public CarUserControl m_CarUserControl;
+		 public InputsOutputs m_InOut;
 
 		// Use this for initialization
 		void Start () {}
@@ -17,19 +17,22 @@ namespace UnityStandardAssets.Vehicles.Car {
 
         void OnTriggerEnter(Collider other)
         {
-        	m_CarUserControl.frontSwitch = -2;
+        	// m_CarUserControl.frontSwitch = 1;
+        	m_InOut.frontSwitch = 1;
 	    	// m_CarUserControl.MoveCar(-1,-1,0);
         }
 
 		 void OnTriggerStay(Collider other)
 	    {
-	    	m_CarUserControl.frontSwitch = -2;
+	    	// m_CarUserControl.frontSwitch = 1;
+	    	m_InOut.frontSwitch = 1;
 	    	// m_CarUserControl.MoveCar(-1,-1,0);
 	    }
 
 	    void OnTriggerExit(Collider other)
 	    {
-	    	m_CarUserControl.frontSwitch = 0;
+	    	// m_CarUserControl.frontSwitch = 0;
+	    	m_InOut.frontSwitch = 0;
 	    }
 		
 		// Update is called once per frame

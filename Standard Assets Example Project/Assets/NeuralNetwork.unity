@@ -741,8 +741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e324846551d1545aedb10415164b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Car: {fileID: 341300514}
-  m_CarUserControl: {fileID: 341300513}
+  m_InOut: {fileID: 341300516}
 --- !u!4 &332488660
 Transform:
   m_ObjectHideFlags: 0
@@ -773,6 +772,7 @@ GameObject:
   - component: {fileID: 341300515}
   - component: {fileID: 341300514}
   - component: {fileID: 341300513}
+  - component: {fileID: 341300516}
   - component: {fileID: 341300512}
   m_Layer: 0
   m_Name: Car
@@ -817,9 +817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96468c245ae8e0d4f8f1c7a7b8b0542e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontSwitch: 0
-  leftSwitch: 0
-  rightSwitch: 0
+  switchIsOn: 0
   h: 0
   v: 0
   handbrake: 0
@@ -883,6 +881,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &341300516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 341300511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc50a2fb762eb5d45ae3cad474d65f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CarUserControl: {fileID: 341300513}
+  frontSwitch: 0
+  rightSwitch: 0
+  leftSwitch: 0
+  h: 0
+  v: 0
+  handbrake: 0
 --- !u!1 &352958648 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: b87e14348acae3449a86167ae5521ac4, type: 3}
@@ -4624,8 +4640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e01571c1e64173418630c35c2f540f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Car: {fileID: 341300514}
-  m_CarUserControl: {fileID: 341300513}
+  m_InOut: {fileID: 341300516}
 --- !u!114 &525588596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8214,7 +8229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c200f443486a7748ac91879c28ad121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CarUserControl: {fileID: 341300513}
+  m_InOut: {fileID: 341300516}
 --- !u!1 &1903741330
 GameObject:
   m_ObjectHideFlags: 0
