@@ -790,7 +790,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 341300511}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20fa55eb64c5cea4aa3c71ae19c434bf, type: 3}
   m_Name: 
@@ -824,7 +824,7 @@ MonoBehaviour:
   v: 0
   handbrake: 0
   mySteering: 0
-  m_Car: {fileID: 0}
+  m_Car: {fileID: 341300514}
 --- !u!114 &341300514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -927,6 +927,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputLayer: []
   outputLayer: []
+  weights: []
+  FS: 0
+  RS: 0
+  LS: 0
 --- !u!1 &352958648 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: b87e14348acae3449a86167ae5521ac4, type: 3}
