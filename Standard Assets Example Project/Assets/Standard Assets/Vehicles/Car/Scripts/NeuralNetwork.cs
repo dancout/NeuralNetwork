@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Vehicles.Car;
 
 public class NeuralNetwork : MonoBehaviour {
 
@@ -8,24 +9,29 @@ public class NeuralNetwork : MonoBehaviour {
 	public List<float> outputLayer = new List<float>(); // output values used for controlling the car
 	public List<float> weights = new List<float>(); // for now, this represents the weights between the input and output layer (assuming only a 2 layer network)
 	public List<Node> inputLayer2 = new List<Node>();
+	public List<Node> outputLayer2 = new List<Node>();
+	public float RSweight;// = Random.value;
+	public float LSweight;// = Random.value;
+	public float V1weight;
+	public float V2weight;
 	public float FS = 0;
 	public float RS = 0;
 	public float LS = 0;
 // Define our Node Class Type
-	public class Node  {
-		public float activationSum;
-		public float bias;
-		public float activationThreshold;
-		public float output;
+	// public class Node  {
+	// 	public float activationSum;
+	// 	public float bias;
+	// 	public float activationThreshold;
+	// 	public float output;
 
-		// constructor
-		public Node(float actSum, float b, float actThresh) {
-			activationSum = actSum;
-			bias = b;
-			activationThreshold = actThresh;
-			output = 0;
-		}
-	}	
+	// 	// constructor
+	// 	public Node(float actSum, float b, float actThresh) {
+	// 		activationSum = actSum;
+	// 		bias = b;
+	// 		activationThreshold = actThresh;
+	// 		output = 0;
+	// 	}
+	// }	
 
 	void runNode(Node node) {
 		float finalSum = node.activationSum + node.bias;
@@ -35,6 +41,8 @@ public class NeuralNetwork : MonoBehaviour {
 		else{
 			node.output = 0;
 		}
+
+		node.activationSum = 0;
 	}
 
 	// Use this for initialization
@@ -44,21 +52,13 @@ public class NeuralNetwork : MonoBehaviour {
 		outputLayer.Add(0F);
 		outputLayer.Add(0F);
 
-		
-		int num = 3 * 3; // 3 input nodes * 2 output nodes
-		for(int i = 0; i < num; i++){
-			// weights.Add(Random.value);
-			weights.Add(1F);
-		}
+		RSweight = Random.value;
+		LSweight = Random.value;
+		V1weight = Random.value;
+		V2weight = Random.value;
 
-		// hardcoding to make car move forward
-		weights[0] = 0F;
-		weights[1] = 0F;
-		weights[2] = 0F;
-		weights[4] = 0F;
-		weights[5] = 0F;
-		weights[6] = 0F;
-		weights[8] = 0F;
+
+
 
 	}
 	
@@ -66,22 +66,12 @@ public class NeuralNetwork : MonoBehaviour {
 	void Update () {
 		// input layer should already be set from ComputeValues.cs
 		// the below values are set as defaults. IE, if no switches are on, then just drive straight forward and slant a little to the right.
-		float h = 0.1f;
-		float v = 0.2F;
-		float handbrake = 0;
+		float h;
+		float v;
+		float handbrake;
 
 
 		// where the magic happens
-
-		// create input layer
-		// List<Node> inputLayer2 = new List<Node>();
-		// Random rand = new Random();
-		float myNum = Random.value;
-		inputLayer2 = new List<Node>();
-
-		for (int i = 0; i < 3; i++){
-			inputLayer2.Add(new Node(inputLayer[i], 0F, 0.5F));
-		}
 
 		for (int i = 0; i < 3; i++){
 			runNode(inputLayer2[i]);
@@ -93,15 +83,10 @@ public class NeuralNetwork : MonoBehaviour {
 
 		// multiply weights with input layer
 		int numPrevLayerNodes = 3;
-		int numNextLayerNodes = 3;
-
-		List<Node> outputLayer2 = new List<Node>();
-		for (int i = 0; i < 4; i++){
-			outputLayer2.Add(new Node(0F, 0.5F, 0.5F));
-		}
+		int numNextLayerNodes = 4;
 
 		// hardcoding here to make it just drive forward
-		outputLayer2[2].bias = 0.6F;
+		// outputLayer2[2].bias = 1F;
 
 		for (int x = 0; x < numPrevLayerNodes; x++){
 			float prevOutput = inputLayer2[x].output;
@@ -121,16 +106,22 @@ public class NeuralNetwork : MonoBehaviour {
 			runNode(outputLayer2[i]);
 		}
 
-		FS = outputLayer2[0].activationSum;
-		RS = outputLayer2[1].activationSum;
-		LS = outputLayer2[2].activationSum;
+		FS = outputLayer2[0].output;
+		RS = outputLayer2[1].output;
+		LS = outputLayer2[2].output;
 
-		float h1 = outputLayer2[0].output * (-1);
-		float h2 = outputLayer2[1].output;
+		float h1 = outputLayer2[0].output * (-1) * LSweight;
+		float h2 = outputLayer2[1].output * RSweight;
 		h = h1 + h2;
 
 		// h = outputLayer2[0].output;
-		v = outputLayer2[2].output;
+
+		float v1 = outputLayer2[2].output * (-1) * V1weight;
+		float v2 = outputLayer2[3].output * V2weight;
+
+		v = v1 + v2;
+
+		// v = outputLayer2[2].output;
 		handbrake = 0F;
 
 
